@@ -47,7 +47,7 @@ std::string pureRandomGenerator(int maxWordLength){
 	wordLength = rand() % maxWordLength;
 		
 	for (int i = 0; i < wordLength; i++){
-        word.push_back(alphabet[(int)rand() % 21]);
+        word.push_back(alphabet[(int)rand() % 26]);
 	}
 	
 	return std::string(word);
@@ -59,22 +59,22 @@ int main(){
 	int wordsFound = 0;
 	int minWordLength = 0;
 	int stringCount = 0;
-	int choice;
+	char choice;
 	int j = 0;
 	
 	std::string generatedWord;
 	std::vector<std::string> realWords;
 	
-	wordlist Words("D:/Users/26377/Documents/Checkwords/google-10000-english-master/google-10000-english-master/20k.txt");
+	wordlist Words("google-10000-english-master/google-10000-english-master/20k.txt");
 	
 	while(true){
 		std::cout << "Enter max word length: ";
 		std::cin >> length;
 		
-		std::cout << "\nPure random or semi-random? \n1.Pure random \n2.Semi-random \n>";
+		std::cout << "\nPure random[Y] or semi-random[N]? \n>";
 		std::cin >> choice;
 		
-		if(choice == 2){
+		if(choice == 'N' || choice == 'n'){
 		  std::cout << "\nEnter max vowel count: ";
 		  std::cin >> vowelCount;
         }
@@ -130,4 +130,3 @@ int main(){
 	
 	return 0;
 }
-
